@@ -1,0 +1,30 @@
+{
+  "name": "snippets",
+  "version": "1.0.0",
+  "description": "app to CRUD snippets - express+node POC",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon ./ localhost 8080"
+  },
+  "keywords": [
+    "snippets",
+    "express",
+    "node",
+    "java",
+    "javascript"
+  ],
+  "author": "Dariusz Ustrzycki <ustrzycki@javacoder.cloud>",
+  "license": "ISC"
+}
