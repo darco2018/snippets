@@ -5,9 +5,34 @@ const app = express();
 const port = 3000;
 app.set('view engine', 'ejs');
 
+const inMemoryDb = [
+  {
+    id: 1,
+    title: 'Read from file',
+    content: 'snippet proper one',
+    lg: 'java',
+    desc: 'one description',
+  },
+  {
+    id: 1,
+    title: 'Write and Read from file',
+    content: 'snippet proper two',
+    lg: 'java script',
+    desc: 'two description',
+  },
+  {
+    id: 1,
+    title: 'Regex',
+    content: 'snippet proper three',
+    lg: 'java',
+    desc: 'some description three',
+  },
+
+];
+
 app.get('/', (req, res) => {
   // res.send('Welcome to Snippets HOME page');
-  res.render('index');
+  res.render('index', { snippets: inMemoryDb });
 });
 
 
