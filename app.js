@@ -14,14 +14,14 @@ const inMemoryDb = [
     desc: 'one description',
   },
   {
-    id: 1,
+    id: 2,
     title: 'Write and Read from file',
     content: 'snippet proper two',
     lg: 'java script',
     desc: 'two description',
   },
   {
-    id: 1,
+    id: 3,
     title: 'Regex',
     content: 'snippet proper three',
     lg: 'java',

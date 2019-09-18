@@ -1,1 +1,7 @@
 <h1>My Snippets</h1>
+
+<% snippets.forEach((item) => { %>
+<li>
+    <%= item.id %> | <strong><%= item.title %></strong>> | <%= item.content %> | <%= item.lg %> | <%= item.desc %>
+</li>
+<% }) %>
