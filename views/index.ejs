@@ -1,4 +1,20 @@
-<h1>My Snippets</h1>
+<h1>Snippets Library</h1>
+
+<h2>Add a snippet</h2>
+<form action="/addsnippet" method="POST">
+    <textarea rows="1" cols="50" placeholder="title" name="title"></textarea><br><br>
+    <textarea rows="8" cols="50" placeholder="snippet" name="content"></textarea><br><br>
+    Language:
+    <select name="lg">
+        <option value="java" selected>Java</option>
+        <option value="javascript">Java Script</option>
+        <option value="mysql">My SQL</option>
+    </select><br><br>
+    <textarea rows="4" cols="50" placeholder="optional notes" name="desc"></textarea><br><br>
+    <input type="submit" value="Add snippet">
+</form>
+
+<h2>Your snippets</h2>
 
 <% snippets.forEach((item) => { %>
 <li>
