@@ -16,8 +16,11 @@
 
 <h2>Your snippets</h2>
 
-<% snippets.forEach((item) => { %>
-<li>
-    <%= item.id %> | <strong><%= item.title %></strong>> | <%= item.content %> | <%= item.lg %> | <%= item.desc %>
-</li>
-<% }) %>
+
+<h2>Your snippets</h2>
+<ul>
+    <% snippets.forEach((item) => { %>
+    <li>
+        <%= item.id %> | <strong><%= item.title %></strong>> | <%= item.content %> | <%= item.lg %> | <%= item.desc %>
+    </li>
+    <% }) %>

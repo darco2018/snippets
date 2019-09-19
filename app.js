@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -7,23 +8,24 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: 'true' }));
 
+let idCounter = 3;
 const inMemoryDb = [
   {
-    id: 1,
+    id: 0,
     title: 'Read from file',
     content: 'snippet proper one',
     lg: 'java',
     desc: 'one description',
   },
   {
-    id: 2,
+    id: 1,
     title: 'Write and Read from file',
     content: 'snippet proper two',
     lg: 'java script',
     desc: 'two description',
   },
   {
-    id: 3,
+    id: 2,
     title: 'Regex',
     content: 'snippet proper three',
     lg: 'java',
@@ -39,17 +41,12 @@ app.get('/', (req, res) => {
 
 
 app.post('/addsnippet', (req, res) => {
-  console.log('POST sends a snippet...');
-  console.log(req.body);
+  console.log('/addsnippet entered with POST...');
+  const requestBodyStr = JSON.stringify(req.body);
+  // / without stringify next line displays Object object
+  console.log(`Body of request: ${requestBodyStr}`);
 
-  /* const newMockSnippet = {
-    id: inMemoryDb.length + 1,
-    title: 'Start express/node app',
-    content: 'snippet proper default',
-    lg: 'lg default',
-    desc: 'default description',
-  }; */
-  const newId = inMemoryDb.length + 1;
+  const newId = idCounter++;
   const newTitle = !req.body.title ? `Snippet nr ${newId}` : req.body.title;
   const newContent = !req.body.content ? 'No content' : req.body.content;
   const newLg = !req.body.lg ? 'Unknown' : req.body.lg;
@@ -68,7 +65,7 @@ app.post('/addsnippet', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.send('Oops, sth went wrong!');
+  res.send('Oops, sth went wrong! No page like this!');
 });
 
 
