@@ -1,0 +1,19 @@
+
+    <style>
+    h1 {
+        color: #2F4858;
+    }
+
+    h2 {
+        color: #396974;
+    }
+
+    body {
+        background: #EEE8A9;
+    }
+
+    #deleteButton,
+    #addButton {
+        background: #ADCC9B;
+    }
+</style>
