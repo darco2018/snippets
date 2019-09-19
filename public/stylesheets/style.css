@@ -1,5 +1,4 @@
 
-    <style>
     h1 {
         color: #2F4858;
     }
@@ -16,4 +15,7 @@
     #addButton {
         background: #ADCC9B;
     }
-</style>
+
+    #footer {
+        text-align: center;
+    }

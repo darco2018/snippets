@@ -1,55 +1,50 @@
-<head>
-    <link rel="stylesheet" href="stylesheets/style.css">
-</head>
+<% include partials/header.ejs %>
 
-<body>
+<h1>Snippets Library</h1>
 
-    <h1>Snippets Library</h1>
+<ul>
+    <% snippets.forEach((item) => { %>
+    <li>
+        <%= item.id %> | <strong><%= item.title %></strong>> | <%= item.content %> | <%= item.lg %> |
+        <%= item.desc %>
+    </li>
+    <% }) %>
+</ul>
 
-    <h2>Add a snippet</h2>
-    <form action="/addsnippet" method="POST">
-        <textarea rows="1" cols="50" placeholder="title" name="title"></textarea><br><br>
-        <textarea rows="8" cols="50" placeholder="snippet" name="content"></textarea><br><br>
-        Language:
-        <select name="lg">
-            <option value="java" selected>Java</option>
-            <option value="javascript">Java Script</option>
-            <option value="mysql">My SQL</option>
-        </select><br><br>
-        <textarea rows="4" cols="50" placeholder="optional notes" name="desc"></textarea><br><br>
-        <input id="addButton" type="submit" value="Add snippet">
-    </form>
+<h2>Add a snippet</h2>
+<form action="/addsnippet" method="POST">
+    <textarea rows="1" cols="50" placeholder="title" name="title"></textarea><br><br>
+    <textarea rows="8" cols="50" placeholder="snippet" name="content"></textarea><br><br>
+    Language:
+    <select name="lg">
+        <option value="java" selected>Java</option>
+        <option value="javascript">Java Script</option>
+        <option value="mysql">My SQL</option>
+    </select><br><br>
+    <textarea rows="4" cols="50" placeholder="optional notes" name="desc"></textarea><br><br>
+    <input id="addButton" type="submit" value="Add snippet">
+</form>
 
-    <h2>Delete a snippet</h2>
-    <input id="idInput" placeholder="enter snippet id" type="number"><br><br>
-    <input id="deleteButton" type="submit" value="Delete"> <!-- onclick="myFunction()" -->
+<h2>Delete a snippet</h2>
+<input id="idInput" placeholder="enter snippet id" type="number"><br><br>
+<input id="deleteButton" type="submit" value="Delete"> <!-- onclick="myFunction()" -->
 
 
-    <h2>Your snippets</h2>
-    <ul>
-        <% snippets.forEach((item) => { %>
-        <li>
-            <%= item.id %> | <strong><%= item.title %></strong>> | <%= item.content %> | <%= item.lg %> |
-            <%= item.desc %>
-        </li>
-        <% }) %>
-    </ul>
 
-    <p id="footer">Dariusz Ustrzycki 2019</p>
 
-    <script>
+<script>
 
-        document.getElementById("deleteButton").addEventListener("click", function () {
-            var idInput = document.getElementById("idInput");
-            var id = idInput.value;
-            console.log("Adding id " + id + " to url");
-            window.location.href = 'http://localhost:3000/deletesnippet/' + id;
-        });
+    document.getElementById("deleteButton").addEventListener("click", function () {
+        var idInput = document.getElementById("idInput");
+        var id = idInput.value;
+        console.log("Adding id " + id + " to url");
+        window.location.href = 'http://localhost:3000/deletesnippet/' + id;
+    });
 
-        /* function buttonHandler() {
-            window.location.href = 'http://localhost:3000/deletesnippet/' + document.getElementById("idInput").value;
-        } */
+    /* function buttonHandler() {
+        window.location.href = 'http://localhost:3000/deletesnippet/' + document.getElementById("idInput").value;
+    } */
 
-    </script>
+</script>
 
-</body>
+<% include partials/footer.ejs %>
