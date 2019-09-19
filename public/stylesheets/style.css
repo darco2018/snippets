@@ -19,3 +19,12 @@
     #footer {
         text-align: center;
     }
+
+    .centered {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    .left-aligned {
+        text-align: left;
+    }

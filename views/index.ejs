@@ -1,32 +1,62 @@
+<html lang="en">
+
 <% include partials/header.ejs %>
 
-<h1><%= "Snippets Library".toUpperCase() %></h1>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">LOGO</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="home"><a href="/">HOME</a></li>
+                    <li id="about"><a href="/about">ABOUT US</a></li>
+                    <li id="contact"><a href="/contact">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<ul>
-    <% snippets.forEach((item) => { %>
-    <li>
-        <%= item.id %> | <strong><%= item.title %></strong>> | <%= item.content %> | <%= item.lg %> |
-        <%= item.desc %>
-    </li>
-    <% }) %>
-</ul>
+    <div class="container-fluid bg-3 text-center">
+        <h1><%= "Snippets Library".toUpperCase() %></h1>
 
-<h2>Add a snippet</h2>
-<form action="/addsnippet" method="POST">
-    <textarea rows="1" cols="50" placeholder="title" name="title"></textarea><br><br>
-    <textarea rows="8" cols="50" placeholder="snippet" name="content"></textarea><br><br>
-    Language:
-    <select name="lg">
-        <option value="java" selected>Java</option>
-        <option value="javascript">Java Script</option>
-        <option value="mysql">My SQL</option>
-    </select><br><br>
-    <textarea rows="4" cols="50" placeholder="optional notes" name="desc"></textarea><br><br>
-    <input id="addButton" type="submit" value="Add snippet">
-</form>
+        <div class="container-fluid centered">
+            <% snippets.forEach((item) => { %>
+            <p class="left-aligned">
+                <%= item.id %> | <strong><%= item.title %></strong>> | <%= item.content %> | <%= item.lg %> |
+                <%= item.desc %>
+            </p>
+            <% }) %>
+        </div>
 
-<h2>Delete a snippet</h2>
-<input id="idInput" placeholder="enter snippet id" type="number"><br><br>
-<input id="deleteButton" type="submit" value="Delete"> <!-- onclick="myFunction()" -->
+        <h2>Add a snippet</h2>
+        <form action="/addsnippet" method="POST">
+            <textarea rows="1" cols="50" placeholder="title" name="title"></textarea><br><br>
+            <div class="container-fluid centered">
+                <p class="left-aligned">Language:
+                    <select name="lg">
+                        <option value="java" selected>Java</option>
+                        <option value="javascript">Java Script</option>
+                        <option value="mysql">My SQL</option>
+                    </select></p>
+            </div><br>
+            <textarea rows="8" cols="50" placeholder="snippet" name="content"></textarea><br><br>
+            <textarea rows="4" cols="50" placeholder="optional notes" name="desc"></textarea><br><br>
+            <input id="addButton" type="submit" value="Add snippet">
+        </form>
 
-<% include partials/footer.ejs %>
+        <h2>Delete a snippet</h2>
+        <input id="idInput" placeholder="snippet id" type="number"><br><br>
+        <input id="deleteButton" type="submit" value="Delete"> <!-- onclick="myFunction()" -->
+    </div><br><br>
+    <% include partials/footer.ejs %>
+
+</body>
+
+</html>
