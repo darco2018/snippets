@@ -14,7 +14,9 @@
     <input type="submit" value="Add snippet">
 </form>
 
-<h2>Your snippets</h2>
+<h2>Delete a snippet</h2>
+<input id="idInput" placeholder="enter snippet id" type="number"><br><br>
+<button id="idButton" type="submit">Delete</button> <!-- onclick="myFunction()" -->
 
 
 <h2>Your snippets</h2>
@@ -24,3 +26,19 @@
         <%= item.id %> | <strong><%= item.title %></strong>> | <%= item.content %> | <%= item.lg %> | <%= item.desc %>
     </li>
     <% }) %>
+</ul>
+
+<script>
+
+    document.getElementById("idButton").addEventListener("click", function () {
+        var idInput = document.getElementById("idInput");
+        var id = idInput.value;
+        console.log("Adding id " + id + " to url");
+        window.location.href = 'http://localhost:3000/deletesnippet/' + id;
+    });
+
+    /* function buttonHandler() {
+        window.location.href = 'http://localhost:3000/deletesnippet/' + document.getElementById("idInput").value;
+    } */
+
+</script>

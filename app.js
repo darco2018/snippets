@@ -64,6 +64,24 @@ app.post('/addsnippet', (req, res) => {
   res.redirect('/');
 });
 
+app.get('/deletesnippet/:id', (req, res) => {
+  const idParam = !req.params.id ? -1 : req.params.id;
+
+  inMemoryDb.forEach((item, index) => {
+    if (item.id === idParam) {
+      inMemoryDb.splice(idParam, index);
+    }
+  });
+
+  if (idParam >= 0 && idParam < inMemoryDb.length) {
+    inMemoryDb.splice(idParam, 1);
+    console.log(`Deleting item ...${idParam}`);
+    res.redirect('/');
+  } else {
+    res.send(`Can't delete item...${idParam}`);
+  }
+});
+
 app.get('*', (req, res) => {
   res.send('Oops, sth went wrong! No page like this!');
 });
