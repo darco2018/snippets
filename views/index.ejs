@@ -1,6 +1,6 @@
 <% include partials/header.ejs %>
 
-<h1>Snippets Library</h1>
+<h1><%= "Snippets Library".toUpperCase() %></h1>
 
 <ul>
     <% snippets.forEach((item) => { %>
@@ -28,23 +28,5 @@
 <h2>Delete a snippet</h2>
 <input id="idInput" placeholder="enter snippet id" type="number"><br><br>
 <input id="deleteButton" type="submit" value="Delete"> <!-- onclick="myFunction()" -->
-
-
-
-
-<script>
-
-    document.getElementById("deleteButton").addEventListener("click", function () {
-        var idInput = document.getElementById("idInput");
-        var id = idInput.value;
-        console.log("Adding id " + id + " to url");
-        window.location.href = 'http://localhost:3000/deletesnippet/' + id;
-    });
-
-    /* function buttonHandler() {
-        window.location.href = 'http://localhost:3000/deletesnippet/' + document.getElementById("idInput").value;
-    } */
-
-</script>
 
 <% include partials/footer.ejs %>
