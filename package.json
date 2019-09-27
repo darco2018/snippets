@@ -16,13 +16,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon ./ "
+    "start": "node app.js",
+    "devstart": "nodemon ./ "
   },
   "keywords": [
     "snippets",
     "express",
     "node",
-    "java",
     "javascript"
   ],
   "author": "Dariusz Ustrzycki <ustrzycki@javacoder.cloud>",
